@@ -1,33 +1,39 @@
 import React from 'react';
 
-const PopupWithForm = (props) => {
-  //console.log(props.isOpen);
+const PopupWithForm = ({
+  popupType,
+  isOpen,
+  title,
+  popupNameForm,
+  name,
+  children,
+  submitButtonText,
+  onClose,
+}) => {
   return (
     <div
-      className={`popup popup_${props.popupType} ${
-        props.isOpen ? 'popup_opened' : ''
-      }`}
+      className={`popup popup_${popupType} ${isOpen ? 'popup_opened' : null}`}
     >
       <div className='popup__container'>
-        <h2 className='popup__title'>{props.title}</h2>
+        <h2 className='popup__title'>{title}</h2>
         <form
-          className={`popup__form popup__form_${props.popupNameForm}`}
-          name={props.name}
+          className={`popup__form popup__form_${popupNameForm}`}
+          name={name}
           noValidate
         >
-          {props.children}
+          {children}
           <button
             className='popup__btn-save'
             type='submit'
-            data-value={props.submitButtonText}
+            data-value={submitButtonText}
           >
-            {props.submitButtonText}
+            {submitButtonText}
           </button>
         </form>
         <button
           className='popup__btn-close'
           type='button'
-          onClick={props.onClose}
+          onClick={onClose}
         ></button>
       </div>
     </div>

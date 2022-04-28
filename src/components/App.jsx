@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
@@ -7,19 +7,15 @@ import ImagePopup from './ImagePopup';
 
 function App() {
   // изменение профиля
-  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
-    React.useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   // добавление карточки
-  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   // изменение аватара
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
-    React.useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   // удаление карточки
-  const [isAreYouSurePopupOpen, setIsAreYouSurePopupOpen] =
-    React.useState(false);
-
+  const [isAreYouSurePopupOpen, setIsAreYouSurePopupOpen] = useState(false);
   // открытиие изображения
-  const [selectedCard, setSelectedCard] = React.useState({
+  const [selectedCard, setSelectedCard] = useState({
     name: '',
     link: '',
   });
@@ -52,7 +48,7 @@ function App() {
     <div className='page'>
       <Header />
       <Main
-        onCardClick={handleCardClick}
+        onCardClick={handleCardClick} // попап открытия изображения
         onEditProfile={handleEditProfileClick} // редактирование профиля
         onAddPlace={handleAddPlaceClick} // добавление карточки
         onEditAvatar={handleEditAvatarClick} // изменение аватара
